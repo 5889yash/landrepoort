@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Profile: {{ farmer.farmer_name }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .container {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        .profile-card {
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+        }
+        .profile-card h2 {
+            color: #007bff;
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+        .profile-card h3 {
+            color: #6c757d;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+        .farmer-details p {
+            margin-bottom: 0.5rem;
+        }
+        .table-responsive {
+            margin-top: 1rem;
+        }
+        .table thead th {
+            background-color: #e9ecef;
+            color: #495057;
+            font-weight: 600;
+        }
+        .table tbody tr:hover {
+            background-color: #f2f2f2;
+        }
+        .khewat-no-cell {
+            word-break: break-word;
+        }
+        .btn-print {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Print Styles */
+        @media print {
+            @page {
+                size: A4;
+                margin: 1cm; /* Smaller margins for more content */
+            }
+            body {
+                background-color: #fff;
+                font-size: 9pt; /* Slightly smaller font for more content */
+                color: #000;
+            }
+            .container {
+                padding: 0;
+            }
+            .profile-card {
+                box-shadow: none;
+                border: 1px solid #dee2e6;
+                margin-bottom: 1rem;
+                page-break-inside: avoid; /* Avoid breaking cards across pages */
+                page-break-after: always; /* Each farmer profile starts on a new page */
+                padding: 1rem; /* Adjust padding for print */
+            }
+            .profile-card h2, .profile-card h3 {
+                color: #000;
+                font-size: 1.2em; /* Adjust heading sizes */
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+            .farmer-details .col-md-6 {
+                flex: 0 0 50%; /* Force two columns for farmer details */
+                max-width: 50%;
+            }
+            .farmer-details p {
+                margin-bottom: 0.2rem;
+            }
+            .btn-print {
+                display: none;
+            }
+            .table {
+                width: 100%;
+                margin-bottom: 1rem;
+                color: #212529;
+                border-collapse: collapse;
+                font-size: 8pt; /* Smaller font for table content */
+            }
+            .table th, .table td {
+                padding: 0.4rem; /* Smaller padding for table cells */
+                vertical-align: top;
+                border: 1px solid #dee2e6;
+            }
+            .table thead th {
+                vertical-align: bottom;
+                border-bottom: 2px solid #dee2e6;
+            }
+            .table-responsive {
+                overflow-x: visible !important; /* Ensure table is fully visible in print */
+            }
+            /* Ensure all content within profile-card is visible */
+            .profile-card .row {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .profile-card .col-md-6 {
+                width: 50%;
+                flex: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4 text-center text-primary">Farmer Land Records</h1>
+
+        <button class="btn btn-primary btn-print" onclick="window.print()">
+            <i class="bi bi-printer-fill me-2"></i> Print Profile
+        </button>
+
+        <div class="profile-card">
+            <h2 class="mb-3">{{ farmer.farmer_name }}</h2>
+            <div class="row farmer-details">
+                <div class="col-md-6">
+                    <p><strong>Father's Name:</strong> {{ farmer.father_name }}</p>
+                    <p><strong>Grandfather's Name:</strong> {{ farmer.grandfather_name }}</p>
+                    <p><strong>Mobile:</strong> {{ farmer.mobile_number }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Aadhar:</strong> {{ farmer.aadhar_number }}</p>
+                    <p><strong>Village:</strong> {{ farmer.village_name }}</p>
+                    <p><strong>FIRM:</strong> {{ farmer.source_api }}</p>
+                </div>
+            </div>
+
+            <h3 class="mt-4">Land Ownership Summary</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Total Land Records:</strong> {{ farmer.lands|length }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Total Area (Acres):</strong> {{ "%.2f"|format(farmer.total_area_acres) }}</p>
+                </div>
+            </div>
+
+            {% if farmer.bank_detail %}
+                <h3 class="mt-4">Bank Details</h3>
+                <div class="row farmer-details">
+                    <div class="col-md-6">
+                        <p><strong>Account Holder:</strong> {{ farmer.bank_detail.account_holder_name }}</p>
+                        <p><strong>Bank Name:</strong> {{ farmer.bank_detail.bank_name }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Account No:</strong> {{ farmer.bank_detail.account_no }}</p>
+                        <p><strong>IFSC Code:</strong> {{ farmer.bank_detail.ifsc_code }}</p>
+                        <p><strong>Branch Name:</strong> {{ farmer.bank_detail.branch_name }}</p>
+                    </div>
+                </div>
+            {% else %}
+                <p class="text-muted">No bank details available for this farmer.</p>
+            {% endif %}
+
+            {% if farmer.lands %}
+                <h3 class="mt-4">Land Records</h3>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Sr. No.</th>
+                                <th>Location</th>
+                                <th>Khewat No.</th>
+                                <th>Owner Name</th>
+                                <th>Owner Area</th>
+                                <th>Land Available for Mapping</th>
+                                <th>Area under Cultivation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for land in farmer.lands %}
+                                <tr>
+                                    <td>{{ ++loop.index}}</td> {# Start Sr. No. from 1 #}
+                                    <td>{{ land.village_name }}, {{ land.city_name }}, {{ land.district_name }}</td>
+                                        <td class="khewat-no-cell">{{ land.khewat_no }}</td>
+                                    <td>{{ land.owner_name }}</td>
+                                    <td>{{ land.owner_area }}</td>
+                                    <td>{{ land.kanal1 }}K {{ land.marle1 }}M {{ land.sarsai1 }}S</td>
+                                    <td>{{ land.kanal }}K {{ land.marle }}M {{ land.sarsai }}S</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="text-muted">No land records available for this farmer.</p>
+            {% endif %}
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

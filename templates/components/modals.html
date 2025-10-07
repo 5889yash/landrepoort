@@ -1,0 +1,277 @@
+<!-- Modern Farmer Details Modal -->
+    <div class="modal fade" id="farmerModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content modal-modern">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">
+                        <i class="bi bi-person-vcard me-2"></i>Farmer Profile
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <!-- Farmer Profile Header -->
+                    <div class="farmer-profile-header">
+                        <div class="container-fluid p-4">
+                            <div class="row align-items-center">
+                                <div class="col-md-2 text-center">
+                                    <div class="farmer-avatar">
+                                        <i class="bi bi-person-circle"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 class="farmer-name mb-1" id="modalFarmerName">Loading...</h3>
+                                    <p class="farmer-id text-muted mb-2">ID: <span id="modalFarmerId">-</span></p>
+                                    <div class="farmer-status">
+                                        <span class="badge bg-success" id="modalVerificationBadge">Verified</span>
+                                        <span class="badge bg-info ms-2" id="modalOwnerTypeBadge">Owner</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-end">
+                                    <div class="farmer-stats-grid">
+                                        <div class="stat-item">
+                                            <span class="stat-value" id="modalTotalRecords">0</span>
+                                            <span class="stat-label">Records</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-value" id="modalTotalArea">0</span>
+                                            <span class="stat-label">Acres</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Farmer Details Content -->
+                    <div class="farmer-details-content">
+                        <div class="container-fluid p-4">
+                            <div id="farmerDetails">
+                                <!-- Content will be loaded here -->
+                                <div class="text-center py-5">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    <p class="mt-3 text-muted">Loading farmer details...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        <i class="bi bi-x-lg me-1"></i>Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modern Land Record Details Modal -->
+    <div class="modal fade" id="landModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content modal-modern">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">
+                        <i class="bi bi-map me-2"></i>Land Record Details
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <!-- Land Record Header -->
+                    <div class="land-record-header">
+                        <div class="container-fluid p-4">
+                            <div class="row align-items-center">
+                                <div class="col-md-2 text-center">
+                                    <div class="land-icon">
+                                        <i class="bi bi-geo-alt-fill"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 class="land-title mb-1" id="modalLandSrNo">Loading...</h3>
+                                    <p class="land-location text-muted mb-2">
+                                        <span id="modalLandVillage">-</span>, <span id="modalLandDistrict">-</span>
+                                    </p>
+                                    <div class="land-status">
+                                        <span class="badge bg-success" id="modalLandVerification">Verified</span>
+                                        <span class="badge bg-info ms-2" id="modalLandType">Agricultural</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-end">
+                                    <div class="land-stats-grid">
+                                        <div class="stat-item">
+                                            <span class="stat-value" id="modalLandArea">0</span>
+                                            <span class="stat-label">Total Area</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-value" id="modalMappedArea">0</span>
+                                            <span class="stat-label">Mapped</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Land Record Content -->
+                    <div class="land-details-content">
+                        <div class="container-fluid p-4">
+                            <div id="landDetails">
+                                <!-- Content will be loaded here -->
+                                <div class="text-center py-5">
+                                    <div class="spinner-border text-success" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    <p class="mt-3 text-muted">Loading land record details...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        <i class="bi bi-x-lg me-1"></i>Close
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="printLandRecord()">
+                        <i class="bi bi-printer me-1"></i>Print Record
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="showComingSoon('View on Map')">
+                        <i class="bi bi-geo-alt me-1"></i>View on Map
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coming Soon Modal -->
+    <div class="modal fade" id="comingSoonModal" tabindex="-1" aria-labelledby="comingSoonModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-modern">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="comingSoonModalLabel">
+                        <i class="bi bi-rocket me-2"></i>Coming Soon!
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center py-5">
+                    <div class="mb-4">
+                        <i class="bi bi-tools" style="font-size: 4rem; color: var(--primary-color);"></i>
+                    </div>
+                    <h4 class="mb-3">Feature Under Development</h4>
+                    <p class="text-muted mb-4" id="comingSoonFeature">This feature is currently being developed and will be available soon.</p>
+                    <div class="alert alert-info">
+                        <i class="bi bi-info-circle me-2"></i>
+                        We're working hard to bring you the best experience. Stay tuned for updates!
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                        <i class="bi bi-check-lg me-1"></i>Got it!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Export Modal -->
+    <div class="modal fade" id="exportModal" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-modern">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exportModalLabel">
+                        <i class="bi bi-download me-2"></i>Export Data
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted mb-4">Choose the format and data to export:</p>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Export Format</label>
+                        <select class="form-select">
+                            <option value="csv">CSV (Comma Separated Values)</option>
+                            <option value="excel">Excel (.xlsx)</option>
+                            <option value="pdf">PDF Report</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Data Type</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="farmers" id="exportFarmers" checked>
+                            <label class="form-check-label" for="exportFarmers">
+                                Farmers Data
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="lands" id="exportLands" checked>
+                            <label class="form-check-label" for="exportLands">
+                                Land Records
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="showComingSoon('Export')">
+                        <i class="bi bi-download me-1"></i>Export Data
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // Global function for showing coming soon modal
+    function showComingSoon(featureName) {
+        document.getElementById('comingSoonFeature').textContent = 
+            `The "${featureName}" feature is currently being developed and will be available soon.`;
+        
+        var modal = new bootstrap.Modal(document.getElementById('comingSoonModal'));
+        modal.show();
+    }
+
+    // Placeholder functions for filters
+    function clearFilters() {
+        document.getElementById('districtFilter').value = '';
+        document.getElementById('verificationFilter').value = '';
+        showComingSoon('Clear Filters');
+    }
+
+    function clearLandFilters() {
+        document.getElementById('landDistrictFilter').value = '';
+        document.getElementById('villageFilter').value = '';
+        document.getElementById('landTypeFilter').value = '';
+        showComingSoon('Clear Land Filters');
+    }
+
+    function printLandRecord() {
+        const modalContent = document.querySelector('#landModal .modal-content');
+        if (modalContent) {
+            const printContent = `
+                <html>
+                <head>
+                    <title>Land Record Details</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; margin: 20px; }
+                        .land-record-header { background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+                        .land-icon { width: 60px; height: 60px; background: #10b981; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: white; font-size: 24px; margin-right: 20px; }
+                        .detail-section { margin-bottom: 20px; padding: 15px; border: 1px solid #e5e7eb; border-radius: 8px; }
+                        .section-title { color: #374151; font-weight: 600; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #10b981; }
+                        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+                        th, td { padding: 8px 12px; border: 1px solid #e5e7eb; text-align: left; }
+                        th { background: #f9fafb; font-weight: 600; }
+                        @media print { body { margin: 0; } }
+                    </style>
+                </head>
+                <body>
+                    ${modalContent.innerHTML.replace(/<button[^>]*>.*?<\/button>/gi, '').replace(/onclick="[^"]*"/gi, '')}
+                </body>
+                </html>
+            `;
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(printContent);
+            printWindow.document.close();
+            printWindow.print();
+        }
+    }
+    </script>

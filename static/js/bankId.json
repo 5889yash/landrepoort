@@ -1,0 +1,153 @@
+
+[
+    {
+        "BankId": 155,
+        "BankName": "AU SMALL FINANCE BANK LIMITED",
+        "BankUid": "16",
+        "BankCode": "AUBL"
+    },
+    {
+        "BankId": 10,
+        "BankName": "Axis Bank",
+        "BankUid": "15",
+        "BankCode": "UTIB"
+    },
+    {
+        "BankId": 13,
+        "BankName": "Bank of Baroda",
+        "BankUid": "14",
+        "BankCode": "BARB"
+    },
+    {
+        "BankId": 15,
+        "BankName": "Bank of India",
+        "BankUid": "15",
+        "BankCode": "BKID"
+    },
+    {
+        "BankId": 16,
+        "BankName": "Bank Of Maharashtra",
+        "BankUid": "0",
+        "BankCode": "MAHB"
+    },
+    {
+        "BankId": 24,
+        "BankName": "Canara Bank",
+        "BankUid": "13",
+        "BankCode": "CNRB"
+    },
+    {
+        "BankId": 163,
+        "BankName": "CAPITAL SMALL FINANCE BANK",
+        "BankUid": "12",
+        "BankCode": "CLBL"
+    },
+    {
+        "BankId": 26,
+        "BankName": "Central Bank of India",
+        "BankUid": "10",
+        "BankCode": "CBIN"
+    },
+    {
+        "BankId": 173,
+        "BankName": "Cooperative Bank",
+        "BankUid": "15",
+        "BankCode": "UTIB0PSCB"
+    },
+    {
+        "BankId": 44,
+        "BankName": "FEDERAL BANK",
+        "BankUid": "0",
+        "BankCode": "FDRL"
+    },
+    {
+        "BankId": 47,
+        "BankName": "HDFC Bank Ltd",
+        "BankUid": "14",
+        "BankCode": "HDFC"
+    },
+    {
+        "BankId": 50,
+        "BankName": "ICICI BANK LIMITED",
+        "BankUid": "12",
+        "BankCode": "ICIC"
+    },
+    {
+        "BankId": 51,
+        "BankName": "IDBI Bank",
+        "BankUid": "12",
+        "BankCode": "IBKL"
+    },
+    {
+        "BankId": 53,
+        "BankName": "Indian Bank",
+        "BankUid": "16",
+        "BankCode": "IDIB"
+    },
+    {
+        "BankId": 54,
+        "BankName": "Indian Overseas Bank",
+        "BankUid": "15",
+        "BankCode": "IOBA"
+    },
+    {
+        "BankId": 55,
+        "BankName": "INDUSIND BANK",
+        "BankUid": "12",
+        "BankCode": "INDB"
+    },
+    {
+        "BankId": 59,
+        "BankName": "Jammu & Kashmir Bank Ltd",
+        "BankUid": "16",
+        "BankCode": "JAKA"
+    },
+    {
+        "BankId": 69,
+        "BankName": "KOTAK MAHINDRA BANK LIMITED",
+        "BankUid": "14",
+        "BankCode": "KKBK"
+    },
+    {
+        "BankId": 88,
+        "BankName": "PUNJAB AND SIND BANK",
+        "BankUid": "14",
+        "BankCode": "PSIB"
+    },
+    {
+        "BankId": 172,
+        "BankName": "Punjab Gramin Bank",
+        "BankUid": "14",
+        "BankCode": "PUNB0PGB"
+    },
+    {
+        "BankId": 87,
+        "BankName": "Punjab National Bank",
+        "BankUid": "14",
+        "BankCode": "PUNB"
+    },
+    {
+        "BankId": 104,
+        "BankName": "State Bank of India",
+        "BankUid": "11",
+        "BankCode": "SBIN"
+    },
+    {
+        "BankId": 122,
+        "BankName": "UCO Bank",
+        "BankUid": "14",
+        "BankCode": "UCBA"
+    },
+    {
+        "BankId": 123,
+        "BankName": "Union Bank of India",
+        "BankUid": "15",
+        "BankCode": "UBIN"
+    },
+    {
+        "BankId": 164,
+        "BankName": "Yes Bank",
+        "BankUid": "15",
+        "BankCode": "YESB"
+    }
+]

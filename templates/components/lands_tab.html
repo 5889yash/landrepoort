@@ -1,0 +1,74 @@
+            <!-- Land Records Tab -->
+            <div class="tab-pane fade" id="lands" role="tabpanel">
+                <div class="tab-content-wrapper">
+                    <!-- Tab Header -->
+                    <div class="tab-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="tab-title">
+                                <h4 class="mb-1">
+                                    <i class="bi bi-map me-2 text-success"></i>
+                                    Land Records Directory
+                                </h4>
+                                <p class="text-muted mb-0">Browse and view land ownership records</p>
+                            </div>
+                            <div class="tab-actions">
+                                <div class="search-box me-3">
+                                    <i class="bi bi-search"></i>
+                                    <input type="text" id="searchLand" class="form-control search-input" placeholder="Search land records...">
+                                </div>
+                                <button class="btn btn-outline-success btn-sm" onclick="showComingSoon('Bulk Export Land Records A4')">
+                                    <i class="bi bi-file-earmark-pdf me-1"></i>Bulk Export (A4)
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Data Table -->
+                    <div class="data-table-container">
+                        <div class="table-responsive">
+                            <table class="data-table table-modern">
+                                <thead>
+                                    <tr>
+                                        <th><i class="bi bi-list-ol me-1"></i>Sr.No.</th>
+                                        <th><i class="bi bi-person me-1"></i>Farmer Name</th>
+                                        <th><i class="bi bi-person-badge me-1"></i>Owner Name</th>
+                                        <th><i class="bi bi-geo-alt me-1"></i>Location</th>
+                                        <th><i class="bi bi-file-text me-1"></i>Khewat No.</th>
+                                        <th><i class="bi bi-rulers me-1"></i>Total Land</th>
+                                        <th><i class="bi bi-tree me-1"></i>Cultivation Area</th>
+                                        <th><i class="bi bi-gear me-1"></i>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="landsTableBody">
+                                    <!-- Loading state -->
+                                    <tr class="loading-row">
+                                        <td colspan="8" class="text-center py-5">
+                                            <div class="loading-spinner">
+                                                <div class="spinner-border text-success" role="status">
+                                                    <span class="visually-hidden">Loading...</span>
+                                                </div>
+                                                <p class="mt-3 text-muted">Loading land records...</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Pagination -->
+                        <div class="table-footer">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="table-info">
+                                    <span class="text-muted">Showing <span id="landsStart">0</span> to <span id="landsEnd">0</span> of <span id="landsTotal">0</span> entries</span>
+                                </div>
+                                <nav aria-label="Land records pagination">
+                                    <ul class="pagination pagination-modern" id="landsPagination">
+                                        <!-- Pagination will be added here -->
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
